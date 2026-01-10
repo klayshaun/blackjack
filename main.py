@@ -1,8 +1,17 @@
-from cards import Card
+from deck import Deck
 
 def main():
-    card1 = Card("Ace", "Hearts")
     
+    testdeck = Deck()
+    
+    print (testdeck)
+
+    testdeck.deckShuffle()
+
+    print ("\n")
+
+    print (testdeck)
+  
 
 
 if __name__ == "__main__":
