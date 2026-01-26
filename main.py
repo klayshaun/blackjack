@@ -13,10 +13,15 @@ def main():
 
     print (testdeck)
 
-    print(Currency(100.0, "USD"))
-    
-    print(Currency(50.0, "USD"))
+    wallet = Currency(100, "USD")
+    wallet += 25          # deposit
+    wallet -= 40          # bet/withdraw
+    print(wallet)         # Currency(amount=85.00, typeOf='USD')
 
+    euro_wallet = wallet.convert_to("EUR")
+    print(euro_wallet)
+
+    print(wallet.history) # shows every change recorded
 
 if __name__ == "__main__":
     main()
