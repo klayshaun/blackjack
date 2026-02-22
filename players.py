@@ -30,6 +30,3 @@ class PLayers:
 
 class human(PLayers):
     pass
-
-
-
