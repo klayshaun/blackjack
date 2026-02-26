@@ -7,7 +7,7 @@ class PLayers:
     def __init__(self, name="BoB"):
         self.name = name
         self.hand = []
-        #self.score = 0
+        self.score = 0
 
     def __str__(self):
         cards = ", ".join(str(c) for c in self.hand)

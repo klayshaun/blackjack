@@ -4,10 +4,29 @@ from players import PLayers
 from dealer import Dealer
 
 def main():
+    def hand_value(hand):
+    # base values
+        values = {"2":2, "3":3, "4":4, "5":5, "6":6, "7":7, "8":8, "9":9,
+              "10":10, "J":10, "Q":10, "K":10, "A":11}
+
+        total = 0
+        aces = 0
+
+        for card in hand:
+         total += values[card.rank]
+         if card.rank == "A":
+            aces += 1
+
+    # If we busted and we have aces counted as 11, convert them to 1 (subtract 10 each)
+        while total > 21 and aces > 0:
+            total -= 10
+            aces -= 1
+
+        return total
     
     testdeck = Deck()
 
-    testdeck.deckShuffle
+    testdeck.deckShuffle()
 
     player = PLayers("Alice")
     player.drawcard(testdeck.drawCard())
@@ -29,10 +48,28 @@ def main():
             print(player)
 
         elif action == "stand":
-            deal.drawcard(testdeck.drawCard())
+    # dealer draws until 17 or more
+            while hand_value(deal.hand) < 17:
+                deal.drawcard(testdeck.drawCard())
+
             print(deal)
-            break
-    
+            
+        player_total = hand_value(player.hand)
+        dealer_total = hand_value(deal.hand)
+
+        print(f"Player total: {player_total}")
+        print(f"Dealer total: {dealer_total}")
+
+        if player_total > 21:
+         print("Dealer wins (player busted).")
+        elif dealer_total > 21:
+         print("Player wins (dealer busted).")
+        elif player_total > dealer_total:
+         print("Player wins!")
+        elif dealer_total > player_total:
+         print("Dealer wins!")
+        else:
+         print("Push (tie).")
     #print(player.hand)
     #deal.drawcard(testdeck.drawCard())
     #print(deal)
