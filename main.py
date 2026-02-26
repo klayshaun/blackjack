@@ -70,6 +70,7 @@ def main():
          print("Dealer wins!")
         else:
          print("Push (tie).")
+        break
     #print(player.hand)
     #deal.drawcard(testdeck.drawCard())
     #print(deal)
