@@ -1,22 +1,27 @@
 from deck import Deck
 from currency import Currency
 from players import PLayers
+from dealer import Dealer
 
 def main():
     
     testdeck = Deck()
     
-    print (testdeck)
+    deal = Dealer("Dealer")
+    deal.drawcard(testdeck.drawCard())
+    deal.drawcard(testdeck.drawCard())
 
     player = PLayers("Alice")
     player.drawcard(testdeck.drawCard())
     player.drawcard(testdeck.drawCard())
 
     
-    print(player.hand)
+    #print(player.hand)
 
     
     print(player)
+
+    print(deal)
 
     #testdeck.deckShuffle()
    
