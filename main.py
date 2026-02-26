@@ -6,22 +6,40 @@ from dealer import Dealer
 def main():
     
     testdeck = Deck()
-    
-    deal = Dealer("Dealer")
-    deal.drawcard(testdeck.drawCard())
-    deal.drawcard(testdeck.drawCard())
+
+    testdeck.deckShuffle
 
     player = PLayers("Alice")
     player.drawcard(testdeck.drawCard())
+    print(player)
+   
+    deal = Dealer("Dealer")
+    deal.drawcard(testdeck.drawCard())
+    print(deal)
+
+   
     player.drawcard(testdeck.drawCard())
-
-    
-    #print(player.hand)
-
-    
     print(player)
 
-    print(deal)
+    while True:
+        action = input("Hit or Stand? ").lower()
+
+        if action == "hit":
+            player.drawcard(testdeck.drawCard())
+            print(player)
+
+        elif action == "stand":
+            deal.drawcard(testdeck.drawCard())
+            print(deal)
+            break
+    
+    #print(player.hand)
+    #deal.drawcard(testdeck.drawCard())
+    #print(deal)
+    
+    #print(player)
+
+    #print(deal)
 
     #testdeck.deckShuffle()
    
